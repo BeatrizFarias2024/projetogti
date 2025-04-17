@@ -12,7 +12,7 @@ Route::get('/', function () {
 // Tela de cadastro
 Route::get('/criar-conta', function () {
     return view('criar-conta');
-});
+})->name('criar-conta');
 
 // Salva usuário
 Route::post('/salva-conta', function (Request $request) {
