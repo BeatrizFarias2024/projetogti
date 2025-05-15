@@ -6,8 +6,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('inicio');
+    
+})->name('inicio');
 
 // Tela de cadastro
 Route::get('/criar-conta', function () {

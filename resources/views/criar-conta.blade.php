@@ -1,6 +1,8 @@
 <div>
     <!-- Breathing in, I calm body and mind. Breathing out, I smile. - Thich Nhat Hanh -->
     @vite(['resources/css/app.css','resources/js/app.js]'])
+
+    <x-topo></x-topo>
     
 <section class="bg-white dark:bg-gray-900">
   <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
