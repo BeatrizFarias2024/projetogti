@@ -1,5 +1,6 @@
 <?php
 use App\Models\User;
+use App\Models\Equipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -88,9 +89,27 @@ Route::get('/subtração/{num1}/{num2}', function ($num1,$num2) {
 
     Route::post('/logout', function (Request $request) {
         $request->session()->regeneratr();
-            return redirect()->route('/');
-        });   
+            return redirect()('/');
 
+    })->name('logout');
+
+    Route::post('/salva-equipe', function (Request $request) {
+       // dd($request);
+       $equipe=new Equipe();
+       $equipe->nome = $request->nome;
+       $equipe->email = $request->email;
+       $equipe->formacao= $request->formaçao;
+       $equipe->experiencia = $request->experiencia;
+       $equipe->save();
+
+       return"Equipe salva com sucesso!!";
+
+    })->name('salva-equipe')->middleware('auth');   
+
+    Route::get('/lista-equipe', function () {
+        $equipe =Equipe::all();
+        return view('lista-equipe',compact('equipe'));
+    })->name('lista-equipe');
 
 
 
